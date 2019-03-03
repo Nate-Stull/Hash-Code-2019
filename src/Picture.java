@@ -10,8 +10,14 @@ public class Picture {
         this.picNum = picNum;
         this.orientation = orientation;
         this.numOfTags = Integer.parseInt(numOfTags);
-        for(String tag: tags.split("//s+")) {
-            this.tags.add(tag);
+        //converts string of tags into array of tags
+        String currentTag = "";
+        for(String character: tags.split("")) {
+            if(character.equals(" ")) {
+                this.tags.add(currentTag);
+                currentTag = "";
+            }
+            else currentTag += character;
         }
     }
 
